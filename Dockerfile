@@ -7,3 +7,4 @@ ADD start.sh /
 RUN chmod +x start.sh
 ADD supervisord.conf /etc/supervisor/
 RUN echo 'PassivePorts 28000 29000' >> /etc/proftpd/proftpd.conf
+CMD /start.sh
