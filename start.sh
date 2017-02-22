@@ -2,7 +2,7 @@
 
 
 if [ getent passwd $USER > /dev/null 2>&1 ]; then
-  useradd -m -o $USER -u $USERID
+  useradd -m -o $USER -ou $USERID
   echo -e "$PASS\n$PASS" | passwd $USER
 
   mkdir /home/$USER/.ssh
