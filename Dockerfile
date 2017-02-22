@@ -7,4 +7,7 @@ ADD start.sh /
 RUN chmod +x start.sh
 ADD supervisord.conf /etc/supervisor/
 RUN echo 'PassivePorts 28000 29000' >> /etc/proftpd/proftpd.conf
+RUN echo 'RootLogin on' >> /etc/proftpd/proftpd.conf 
 CMD /start.sh
+
+#RUN apt-get install -y vim
