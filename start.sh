@@ -3,6 +3,12 @@
 getent passwd $USER_NAME > /dev/null 2>&1
 if [ $? -ne 0 ]; then
   useradd -m -o $USER_NAME -ou $USERID
+
+  if [  -z "$PASS" ]; then       
+	  echo passgen
+	  PASS=`dd if=/dev/random bs=32 count=1 2> /dev/null | md5sum `
+  fi
+
   echo -e "$PASS\n$PASS" | passwd $USER_NAME
 
   mkdir /home/$USER_NAME/.ssh
